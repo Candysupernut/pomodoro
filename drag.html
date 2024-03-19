@@ -1,0 +1,148 @@
+	<!doctype html>
+<html>
+	<head>
+		<title> Площа трикутника </title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+	</head>
+	<style>
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  but1 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  but1:hover {
+    background-color: #0056b3;
+  }
+  #result {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+<form id="vectorForm">
+  <div>
+    <label for="x1">Point 1 (x1, y1<span id="zLabel">, z1</span>, d1</span>):</label>
+    <input type="number" id="x1" name="x1" required step="any">,
+    <input type="number" id="y1" name="y1" required step="any">,
+    <input type="number" id="z1" name="z1" required step="any" class="hidden">
+	<input type="number" id="d1" name="d1" required step="any" class="hidden">
+  </div>
+  <div>
+    <label for="dimension">Dimension:</label>
+    <select id="dimension" name="dimension" onchange="toggleZInputs()">
+      <option value="1">висота на сторону</option>
+      <option value="2" selected> сторони на синус</option>
+	  <option value="3"> формула герона</option>
+      <option value="4" selected>описане коло</option>
+	  <option value="5">вписанe коло</option>
+    </select>
+  </div>
+ <div class="but1"> <button type="button" onclick="calculateVector()">Calculate</button></div>
+</form>
+</body>
+</html>
+<script>
+  function toggleZInputs() {
+    const dimension = document.getElementById('dimension').value;
+    const z1Input = document.getElementById('z1');
+    const d1Input = document.getElementById('d1');
+    const z1Label = document.getElementById('zLabel');
+    const d1Label = document.getElementById('d1Label');
+
+    if (dimension === '1') {
+      z1Input.classList.add('hidden');
+      d1Input.classList.add('hidden');
+      z1Label.classList.add('hidden');
+      d1Label.classList.add('hidden');
+    } if (dimension === '2')  {
+      z1Input.classList.remove('hidden');
+      z1Label.classList.remove('hidden');
+    }
+	if (dimension === '3')  {
+      z1Input.classList.remove('hidden');
+      z1Label.classList.remove('hidden');
+    }
+	if (dimension === '4')  {
+      z1Input.classList.remove('hidden');
+	  d1Input.classList.remove('hidden');
+      z1Label.classList.remove('hidden');
+	  d1Label.classList.remove('hidden');
+    }
+	if (dimension === '5')  {
+      z1Input.classList.remove('hidden');
+	  d1Input.classList.remove('hidden');
+      z1Label.classList.remove('hidden');
+	  d1Label.classList.remove('hidden');
+    }
+  }
+
+  function calculateVector() {
+    const x1 = parseFloat(document.getElementById('x1').value);
+    const y1 = parseFloat(document.getElementById('y1').value);
+    const dimension = parseInt(document.getElementById('dimension').value);
+
+    const vector = [x2 - x1, y2 - y1];
+    if (dimension === 2) {
+      const z1 = parseFloat(document.getElementById('z1').value);
+      vector.push(x1*y1*z1*0.5);
+    }
+	if (dimension === 3) {
+      const z1 = parseFloat(document.getElementById('z1').value);
+	  const p = (x1+y1+z1)/2
+      vector.push(sqrt(p*((p-x1)*(p-y1)*(p-z1))));
+    }
+	if (dimension === 4) {
+      const d1 = parseFloat(document.getElementById('d1').value);
+      vector.push((x1*y1*z1)/d1);
+    }
+	if (dimension === 5) {
+      const d1 = parseFloat(document.getElementById('d1').value);
+      vector.push((x1*y1*z1*d1);
+    }
+
+    const resultElement = document.getElementById('result');
+    resultElement.innerText = `Vector: (${vector.join(', ')})`;
+
+    // Animate the result
+    resultElement.style.opacity = '0';
+    setTimeout(() => {
+      resultElement.style.opacity = '1';
+    }, 100);
+  }
+</script>

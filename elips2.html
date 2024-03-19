@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<title>КОЛО ТА КУЛЯ </title>
+		<meta charset="utf-8">
+		<link href="menu.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+	</head>
+	<style>
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  but1 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  but1:hover {
+    background-color: #0056b3;
+  }
+  #result {color: white;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  #f1 {position:relative;
+    top: -240px;
+	left:130px;
+    height:200px;
+	width:400px;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+	<body>
+	<script src="script.js"></script>
+<nav class="container">
+  <ul class="top-menu">
+    <li><a href="menu.html">Головна</a></li>
+    <li class="dropdown-standart"><a href="physic.html" class="dropdown">Фізика</a>
+      <ul class="submenu-standart">
+        <li><a href="temperature.html">Конвертер одиниць температури</a></li>
+        <li><a href="cm.html">Конвертер одиниць відстані і довжини</a></li>
+        <li><a href="massa.html">Конвертер одиниць масси і ваги</a></li>
+        <li><a href="time.html">Конвертер одиниць часу</a></li>
+        <li><a href="v.html">Конвертер одиниць об'єму</a></li>
+        <li><a href="sq.html">Конвертер одиниць площі</a></li>
+      </ul>
+    </li>
+    <li><a href="" class="dropdown">Математика</a>
+      <ul class="submenu">
+        <li><h3>Алгебра</h3>
+          <ul>
+            <li><a href="log.html">Обрахунок логарифмів</a></li>
+            <li><a href="duscruminant.html">Обрахунок дискримінанта</a></li>
+            <li><a href="f.html">Факторіал числа</a></li>
+            <li><a href="nck.html">НСК</a></li>
+            <li><a href="nck.html">НСД</a></li>
+            <li><a href="nck.html">Остача при діленні</a></li>
+            <li><a href="nck.html">Розкладання на множники</a></li>
+            <li><a href="procent.html">Калькулятор відсотків</a></li>
+          </ul>
+        </li>
+       
+		<li><h3>Геометрія</h3>
+          <ul>
+            <li><a href="square.html">Площа трикутника 9-ма способами</a></li>
+            <li><a href="">Площа круга та еліпса</a></li>
+            <li><a href="">Площа багатокутників</a></li>
+            <li><a href="vector.html">Bектори</a></li>
+            <li><a href="vector2.html">Множення векторів</a></li>
+            <li><a href="">Элемент списка</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>
+              <a href="" class="link-image">
+              <img src="https://st.depositphotos.com/1025323/2440/i/450/depositphotos_24408891-stock-illustration-advance-of-mathematics.jpg">
+              </a>
+            </li>
+            <li><h3 class="image-header"></h3></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="">Довідка</a></li>
+    <li><a href="formulu.html">Формули</a></li>
+  </ul>
+</nav>
+<main>
+
+			<div class="container f2">
+			    <div class="posts-list">
+					<article id="post-1" class="post">
+  <h2>Площа сектора,сегмента,радіус</h2>
+  
+		<form id='f-form'>
+		<button class='k' onclick="square()">Довжина дуги</button>
+        <button class='k' onclick="rectangle()">Площа кругового сектора</button>
+		<label for="r" id="rLabel" >R:</label>
+        <input type="text" id="r"  placeholder="r">
+        <label for="a" id="aLabel" >a:</label>
+        <input type="text" id="a" placeholder="a">
+		
+		<div id="result"></div>
+		</form>
+		<img id="fig1" class="hidden" src='llll.png'>
+		<img id="fig2" class="hidden" src='s1.png'>
+					</article>
+				
+			</div> 
+			
+			</div><!-- конец div class="container"-->
+			
+		</main></body>
+		<div class="redl">
+		<footer>
+	  
+	   <div class="about"><span data-double="About"></span></div>
+	  <div class="team"><span data-double="Team"></span></div>
+	  <div class="news"> <span data-double="News"></span></div>
+	  <div class="contact"> <span data-double="Contact Us"></span></div>
+	  <div class="rk20"><span data-double="@ 2014 pixelhint com. All Rights Reserved"></span></div>
+	  </div>
+	<script>
+ 
+function square(){
+	const formula1 = document.getElementById('fig1');
+	const formula2 = document.getElementById('fig2');
+    const aInput = document.getElementById('a');
+    const aLabel = document.getElementById('aLabel');
+	const rInput = document.getElementById('r');
+    const rLabel = document.getElementById('rLabel');
+	formula1.classList.remove('hidden');
+	formula2.classList.add('hidden');
+			const x = parseFloat(aInput.value);
+            const y = parseFloat(rInput.value);
+	result =(x*y*3.14)/180;
+       document.getElementById('result').innerText = `Обєм куба: ${result.toFixed(2)}`;
+	   alert(result)
+}
+function rectangle(){
+const formula1 = document.getElementById('fig1');
+const formula2 = document.getElementById('fig2');
+    const aInput = document.getElementById('a');
+    const aLabel = document.getElementById('aLabel');
+	const rInput = document.getElementById('r');
+    const rLabel = document.getElementById('rLabel');
+	formula2.classList.remove('hidden');
+	formula1.classList.add('hidden');
+			const x = parseFloat(document.getElementById('a').value);
+            const y = parseFloat(document.getElementById('r').value);
+	result =(x*y*y*3.14)/360;
+         document.getElementById('result').innerText = `Обєм куба: ${result.toFixed(2)}`;
+		 alert(result)
+}
+
+</script>
+	
+</html>

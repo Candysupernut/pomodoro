@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>img</title>
+</head>
+<body>
+	<img id = "smileImg" src = "smile1.jpg" >
+    <img id = "smileImg" src = "smile1.jpg" >
+    <img id = "smileImg" src = "smile1.jpg" >
+    <script>
+        var images = document.getElementsByTagName('img');
+
+for (var i = 0; i < images.length; i++) {
+    images[i].style.width = "500px"; 
+    images[i].style.height = "550px";
+    images[i].style.border = "2px solid red";
+}
+</script>
+</body>
+</html>

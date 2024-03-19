@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rollove rimage</title>
+</head>
+<body>
+      
+<img id="myImage" src="smile1.jpg" onmouseover="changeImage(this)" onmouseout="resetImage(this)" />
+
+<script>
+function changeImage(a) {
+  a.src = "smile2.png";
+}
+
+function resetImage(a) {
+  a.src = "smile1.jpg"; 
+}
+</script>
+</body>
+</html>

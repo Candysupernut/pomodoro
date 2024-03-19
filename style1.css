@@ -1,0 +1,85 @@
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Global Styles */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.f1 {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.f2 {
+  margin-top: 20px;
+}
+
+.posts-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Sidebar Styles */
+aside {
+  width: 20%;
+  float: right;
+}
+
+.widget {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Navigation Styles (you may need to customize this based on your design) */
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #333;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main Content Styles */
+main {
+  clear: both;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  aside {
+    width: 100%;
+  }
+}
