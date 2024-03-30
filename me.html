@@ -7,7 +7,108 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
-	</head>
+	 <style>
+        body {
+            font-family: Arial, sans-serif; /* Задаємо шрифт для всього тіла сторінки */
+            text-align: center; /* Вирівнюємо текст по центру */
+        }
+        .board {
+            display: inline-block; /* Встановлюємо властивість inline-block для .board */
+            margin-top: 20px; /* Задаємо зовнішній відступ зверху */
+        }
+        .cell {
+            width: 100px; /* Задаємо ширину клітинок */
+            height: 100px; /* Задаємо висоту клітинок */
+            border: 5px solid white; /* Задаємо товщину та колір меж клітинок */
+            font-size: 60px; /* Задаємо розмір шрифту в клітинках */
+            cursor: pointer; /* Змінюємо вигляд курсору на показник при наведенні на клітинку */
+            float: left; /* Вирівнюємо клітинки вліво */
+			padding-top:25px;
+			
+        }
+        .row::after {
+            content: ""; /* Додаємо контент для очищення попередніх елементів */
+            display: block; /* Робимо блочним елементом */
+            clear: both; /* Очищаємо float */
+        }
+
+ 
+  button1 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button1:hover {
+    background-color: #0056b3;
+  }
+ .n{color:white;background: linear-gradient(to bottom, #a19170 14%,#7c6845 16%, #95876a 20%, #938568 22%,#f9e5ab 40%,#58492a 84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%);
+ left:180px;
+ 
+	color: #ddcaa0;
+  font-family: Times, serif;
+  position: relative;
+  padding-top:10px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 6px;
+  line-height: 22px;
+  font-weight: 300;
+  text-shadow: -1px 0 1px #d1c29e, 0 1px 1px #dbcca5, 5px 5px 10px rgb(8 8 8 / 40%), -5px -5px 10px rgb(8 8 8 / 40%);
+}
+  .naming{
+ left:200px;
+	color: #ddcaa0;
+  font-family: Times, serif;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 6px;
+  line-height: 22px;
+  margin: 0;
+  padding-left: 1vw ;
+  font-weight: 300;
+  text-shadow: -1px 0 1px #d1c29e, 0 1px 1px #dbcca5, 5px 5px 10px rgb(8 8 8 / 40%), -5px -5px 10px rgb(8 8 8 / 40%);
+}
+.naming span + span {
+	margin: 10px;
+  font-size: 1vw;
+  letter-spacing: 5px;
+  padding-left: 1vw ;
+}
+.naming span:before {
+content: attr(data-double);
+  left: 0;
+  top: 0;
+  position: absolute;
+  padding-left: 1vw ;
+  z-index: 1;
+  background: linear-gradient(to bottom, #a19170 14%,#7c6845 16%, #95876a 20%, #938568 22%,#f9e5ab 40%,#58492a 84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%);
+  text-shadow: none;
+}
+.b {margin-left:300px;
+        width: 40%;
+        padding: 10px;
+		margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #660000;
+        color: white;
+        cursor: pointer;
+    }
+    .b:hover {
+        background-color:black;
+    }
+	#turn{color: white;
+	font-size: 25px;
+	margin-left:300px;
+	}
+</style></head>
 	<body>
 	<script src="script.js"></script>
 <nav class="container">
@@ -72,11 +173,27 @@
 					<article id="post-1" class="post">
 				<div class="krasiva_znakov">
   <span data-double="POMODORO">POMODORO</span>
-  <span data-double="Сайт для обрахунків">Сайт для обрахунків</span></div>
-		<div class="site">
-        <span data-double ="Вітаємо вас на сайті POMODORO.Тут зібрані програми, які допоможуть вам у виконанні завдань з різних предметів">Вітаємо вас на сайті POMODORO.Тут зібрані програми, які допоможуть вам у виконанні завдань з різних предметів</span>
-        <div class="post-footer">
-          <a class="more-link" href="menu20.html">Продовжити читати</a>
+  <h1>Tic Tac Toe</h1>
+    <div class="board" id="board">
+        <div class="row">
+            <div class="cell" onclick="playerTurn(0, 0)"></div>
+            <div class="cell" onclick="playerTurn(0, 1)"></div>
+            <div class="cell" onclick="playerTurn(0, 2)"></div>
+        </div>
+        <div class="row">
+            <div class="cell" onclick="playerTurn(1, 0)"></div>
+            <div class="cell" onclick="playerTurn(1, 1)"></div>
+            <div class="cell" onclick="playerTurn(1, 2)"></div>
+        </div>
+        <div class="row">
+            <div class="cell" onclick="playerTurn(2, 0)"></div>
+            <div class="cell" onclick="playerTurn(2, 1)"></div>
+            <div class="cell" onclick="playerTurn(2, 2)"></div>
+        </div>
+    </div>
+    <p id="turn">Your Turn (X)</p>
+    <button onclick="resetBoard()">Reset Board</button>
+	<button onclick="resetPage()"><a href="1x1.html">1X1</button>
 					</article>
 				</div> <!-- конец div class="posts-list"-->
 			
@@ -145,6 +262,125 @@
 	  <div class="contact"> <span data-double="Contact Us"></span></div>
 	  <div class="rk20"><span data-double="@ 2014 pixelhint com. All Rights Reserved"></span></div>
 	   </footer></div>
-	
+	<script>
+        let currentPlayer = "X";
+        let board = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+
+        function playerTurn(row, col) {
+            if (board[row][col] === "") {
+                board[row][col] = currentPlayer;
+                document.getElementById("board").children[row].children[col].innerText = currentPlayer;
+                
+                if (checkWin(currentPlayer)) {
+                    alert("You win!");
+                    resetBoard();
+                } else if (checkDraw()) {
+                    alert("It's a draw!");
+                    resetBoard();
+                } else {
+                    currentPlayer = "O"; // Bot's turn
+                    document.getElementById("turn").innerText = "Bot's Turn (O)";
+                    botTurn();
+                }
+            }
+        }
+
+        function botTurn() {
+            // Check for possible wins for bot
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === "") {
+                        board[i][j] = "O";
+                        if (checkWin("O")) {
+                            document.getElementById("board").children[i].children[j].innerText = "O";
+                            alert("Bot wins!");
+                            resetBoard();
+                            return;
+                        }
+                        board[i][j] = "";
+                    }
+                }
+            }
+            // Check for possible wins for player and block
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === "") {
+                        board[i][j] = "X";
+                        if (checkWin("X")) {
+                            board[i][j] = "O";
+                            document.getElementById("board").children[i].children[j].innerText = "O";
+                            currentPlayer = "X"; // Player's turn
+                            document.getElementById("turn").innerText = "Your Turn (X)";
+                            return;
+                        }
+                        board[i][j] = "";
+                    }
+                }
+            }
+            // Choose a random empty cell if no immediate wins or blocks are available
+            let availableCells = [];
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === "") {
+                        availableCells.push([i, j]);
+                    }
+                }
+            }
+            let randomCell = availableCells[Math.floor(Math.random() * availableCells.length)];
+            let [row, col] = randomCell;
+            board[row][col] = "O";
+            document.getElementById("board").children[row].children[col].innerText = "O";
+            currentPlayer = "X"; // Player's turn
+            document.getElementById("turn").innerText = "Your Turn (X)";
+        }
+
+        function checkWin(player) {
+            // Check rows, columns, and diagonals
+            for (let i = 0; i < 3; i++) {
+                if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
+                    return true; // Row win
+                }
+                if (board[0][i] === player && board[1][i] === player && board[2][i] === player) {
+                    return true; // Column win
+                }
+            }
+            if ((board[0][0] === player && board[1][1] === player && board[2][2] === player) ||
+                (board[0][2] === player && board[1][1] === player && board[2][0] === player)) {
+                return true; // Diagonal win
+            }
+            return false;
+        }
+
+        function checkDraw() {
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === "") {
+                        return false; // Board not full
+                    }
+                }
+            }
+            return true; // Board full and no winner
+        }
+
+        function resetBoard() {
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    board[i][j] = "";
+                    document.getElementById("board").children[i].children[j].innerText = "";
+                }
+            }
+            currentPlayer = "X";
+            document.getElementById("turn").innerText = "Your Turn (X)";
+        }
+		function resetPage() {
+		alert('1x1 mode')
+		}
+		
+            
+    </script>
 	
 </html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html> <!-- Задаємо тип документу -->
+<html lang="en"> <!-- Встановлюємо мову документа -->
+<head>
+    <meta charset="UTF-8"> <!-- Встановлюємо кодування символів -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Налаштування масштабування для мобільних пристроїв -->
+    <link href="menu.css" rel="stylesheet">
+	<title>Tic Tac Toe</title> <!-- Заголовок сторінки -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Задаємо шрифт для всього тіла сторінки */
+            text-align: center; /* Вирівнюємо текст по центру */
+        }
+        .board {
+            display: inline-block; /* Встановлюємо властивість inline-block для .board */
+            margin-top: 20px; /* Задаємо зовнішній відступ зверху */
+        }
+        .cell {
+            width: 100px; /* Задаємо ширину клітинок */
+            height: 100px; /* Задаємо висоту клітинок */
+            border: 5px solid white; /* Задаємо товщину та колір меж клітинок */
+            font-size: 60px; /* Задаємо розмір шрифту в клітинках */
+            cursor: pointer; /* Змінюємо вигляд курсору на показник при наведенні на клітинку */
+            float: left; /* Вирівнюємо клітинки вліво */
+			padding-top:25px;
+			
+        }
+        .row::after {
+            content: ""; /* Додаємо контент для очищення попередніх елементів */
+            display: block; /* Робимо блочним елементом */
+            clear: both; /* Очищаємо float */
+        }
+
+ 
+  button1 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button1:hover {
+    background-color: #0056b3;
+  }
+ .n{color:white;background: linear-gradient(to bottom, #a19170 14%,#7c6845 16%, #95876a 20%, #938568 22%,#f9e5ab 40%,#58492a 84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%);
+ left:180px;
+ 
+	color: #ddcaa0;
+  font-family: Times, serif;
+  position: relative;
+  padding-top:10px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 6px;
+  line-height: 22px;
+  font-weight: 300;
+  text-shadow: -1px 0 1px #d1c29e, 0 1px 1px #dbcca5, 5px 5px 10px rgb(8 8 8 / 40%), -5px -5px 10px rgb(8 8 8 / 40%);
+}
+  .naming{
+ left:200px;
+	color: #ddcaa0;
+  font-family: Times, serif;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 6px;
+  line-height: 22px;
+  margin: 0;
+  padding-left: 1vw ;
+  font-weight: 300;
+  text-shadow: -1px 0 1px #d1c29e, 0 1px 1px #dbcca5, 5px 5px 10px rgb(8 8 8 / 40%), -5px -5px 10px rgb(8 8 8 / 40%);
+}
+.naming span + span {
+	margin: 10px;
+  font-size: 1vw;
+  letter-spacing: 5px;
+  padding-left: 1vw ;
+}
+.naming span:before {
+content: attr(data-double);
+  left: 0;
+  top: 0;
+  position: absolute;
+  padding-left: 1vw ;
+  z-index: 1;
+  background: linear-gradient(to bottom, #a19170 14%,#7c6845 16%, #95876a 20%, #938568 22%,#f9e5ab 40%,#58492a 84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%);
+  text-shadow: none;
+}
+.b {margin-left:300px;
+        width: 40%;
+        padding: 10px;
+		margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #660000;
+        color: white;
+        cursor: pointer;
+    }
+    .b:hover {
+        background-color:black;
+    }
+	#turn{color: white;
+	font-size: 25px;
+	margin-left:300px;
+	}
+</style>
+	<body>
+	<script src="script.js"></script>
+<nav class="container">
+  <ul class="top-menu">
+    <li><a href="index.html">Головна</a></li>
+    <li class="dropdown-standart"><a href="" class="dropdown">Фізика</a>
+      <ul class="submenu-standart">
+        <li><a href="temperature.html">Конвертер одиниць температури</a></li>
+        <li><a href="cm.html">Конвертер одиниць відстані і довжини</a></li>
+        <li><a href="massa.html">Конвертер одиниць масси і ваги</a></li>
+        <li><a href="time.html">Конвертер одиниць часу</a></li>
+        <li><a href="v.html">Конвертер одиниць об'єму</a></li>
+        <li><a href="sq.html">Конвертер одиниць площі</a></li>
+      </ul>
+    </li>
+    <li><a href="" class="dropdown">Математика</a>
+      <ul class="submenu">
+        <li><h3>Алгебра</h3>
+          <ul>
+            <li><a href="log.html">Обрахунок логарифмів</a></li>
+            <li><a href="duscruminant.html">Обрахунок дискримінанта</a></li>
+            <li><a href="f.html">Факторіал числа</a></li>
+            <li><a href="nck.html">НСК</a></li>
+            <li><a href="nck.html">НСД</a></li>
+            <li><a href="nck.html">Остача при діленні</a></li>
+            <li><a href="nck.html">Розкладання на множники</a></li>
+            <li><a href="procent.html">Калькулятор відсотків</a></li>
+          </ul>
+        </li>
+       
+		<li><h3>Геометрія</h3>
+          <ul>
+            <li><a href="square.html">Площа трикутника 9-ма способами</a></li>
+            <li><a href="elips.html">Площа круга та еліпса</a></li>
+            <li><a href="elips2.html">Площа сектора</a></li>
+            <li><a href="vector.html">Bектори</a></li>
+            <li><a href="vector2.html">Множення векторів</a></li>
+            <li><a href="kyt.html">Знаходження кута</a></li>
+			<li><a href="radian.html">Тригонометрія</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>
+              <a href="" class="link-image">
+              <img src="https://st.depositphotos.com/1025323/2440/i/450/depositphotos_24408891-stock-illustration-advance-of-mathematics.jpg">
+              </a>
+            </li>
+            <li><h3 class="image-header"></h3></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="me.html">Довідка</a></li>
+    <li><a href="obem.html">Формули об'єму</a></li>
+  </ul>
+</nav>
+<main>
+
+			<div class="container f2">
+			    <div class="posts-list">
+					
+			<div class="naming"><h2><span data-double='Хрестики нулики'></span></h2></div> <br><!-- Заголовок гри -->
+   <div class="n"> <div class="board" id="board"> <!-- Створюємо ігрове поле -->
+        <div class="row"> <!-- Ряд 1 -->
+            <div class="cell" onclick="placeMark(0, 0)"></div> <!-- Клітинка 1 -->
+            <div class="cell" onclick="placeMark(0, 1)"></div> <!-- Клітинка 2 -->
+            <div class="cell" onclick="placeMark(0, 2)"></div> <!-- Клітинка 3 -->
+        </div>
+        <div class="row"> <!-- Ряд 2 -->
+            <div class="cell" onclick="placeMark(1, 0)"></div> <!-- Клітинка 4 -->
+            <div class="cell" onclick="placeMark(1, 1)"></div> <!-- Клітинка 5 -->
+            <div class="cell" onclick="placeMark(1, 2)"></div> <!-- Клітинка 6 -->
+        </div>
+        <div class="row"> <!-- Ряд 3 -->
+            <div class="cell" onclick="placeMark(2, 0)"></div> <!-- Клітинка 7 -->
+            <div class="cell" onclick="placeMark(2, 1)"></div> <!-- Клітинка 8 -->
+            <div class="cell" onclick="placeMark(2, 2)"></div> <!-- Клітинка 9 -->
+        </div>
+    </div></div>
+    <p id="turn">Player 1's Turn</p> <!-- Відображення ходу гравців -->
+    <button class='b' onclick="resetBoard()">Reset Board</button> <!-- Кнопка скидання поля --><br>
+	<button class='b' onclick="resetPage()"><a href="me.html">bot</button>
+
+
+				</div> <!-- конец div class="posts-list"-->
+			
+			  
+			</div> 
+			
+			</div><!-- конец div class="container"-->
+			
+		</main>
+		<div class="foot1"> </div>
+		<div class="more"><li><a href='https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwizkon9heH2AhXu-ioKHRcBCggQjBB6BAgSEAE&url=https%3A%2F%2Fwww.bershka.com%2Fru%2F&usg=AOvVaw0URXXh1ciOFYBbICR0Vwt6' target='_blank'>
+</a></li></div>
+		<a href='https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBpJSajeT2AhXqsYsKHVHZDi0QFnoECAgQAQ&url=https%3A%2F%2Fnovy.tv%2Fua%2Fg-space%2Fna-style%2F2022%2F03%2F18%2Fmoda-2022-trendi-na-ves-rik%2F&usg=AOvVaw0-boWxaq02Eu17vLwVDeqK' target='_blank'></a>
+	 
+		<div class="redl">
+		<footer>
+	  
+	   <div class="about"><span data-double="About"></span></div>
+	  <div class="team"><span data-double="Team"></span></div>
+	  <div class="news"> <span data-double="News"></span></div>
+	  <div class="contact"> <span data-double="Contact Us"></span></div>
+	  <div class="rk20"><span data-double="@ 2014 pixelhint com. All Rights Reserved"></span></div>
+	   </footer></div>
+	
+	</body>
+	<script>
+	function resetPage() {
+		alert('bot mode')
+		}
+        let currentPlayer = "X"; // Початковий гравець
+        let board = [ // Початковий стан дошки
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+
+        function placeMark(row, col) { // Функція встановлення знаку в клітинці
+            if (board[row][col] === "") { // Перевірка, чи клітинка вільна
+                board[row][col] = currentPlayer; // Встановлення знаку гравця в клітинці
+                document.getElementById("board").children[row].children[col].innerText = currentPlayer; // Оновлення інтерфейсу
+                if (checkWin()) { // Перевірка на перемогу
+                    alert(currentPlayer + " wins!"); // Повідомлення переможця
+                    resetBoard(); // Скидання поля
+                } else if (checkDraw()) { // Перевірка на нічию
+                    alert("It's a draw!"); // Повідомлення про нічию
+                    resetBoard(); // Скидання поля
+                } else {
+                    currentPlayer = currentPlayer === "X" ? "O" : "X"; // Зміна гравця
+                    document.getElementById("turn").innerText = "Player " + (currentPlayer === "X" ? "1" : "2") + "'s Turn"; // Оновлення ходу
+                }
+            }
+        }
+
+        function checkWin() { // Функція перевірки перемоги
+            // Перевірка на перемогу в рядках, стовпчиках та діагоналях
+            for (let i = 0; i < 3; i++) {
+                if (board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][0] !== "") {
+                    return true; // Перемога в рядку
+                }
+                if (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[0][i] !== "") {
+                    return true;
+                } // Перемога в стовпчику
+            }
+            if ((board[0][0] === board[1][1] && board[1][1] === board[2][2] ||
+                board[0][2] === board[1][1] && board[1][1] === board[2][0]) && board[1][1] !== "") {
+                return true; // Перемога на діагоналі
+            }
+            return false; // Якщо перемоги немає
+        }
+
+        function checkDraw() { // Функція перевірки нічиєї
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === "") {
+                        return false; // Якщо ще є вільні клітинки, то нічия не встановлена
+                    }
+                }
+            }
+            return true; // Якщо всі клітинки заповнені і переможця немає, то нічия
+        }
+
+        function resetBoard() { // Функція скидання поля
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    board[i][j] = ""; // Скидаємо клітинки на пусті значення
+                    document.getElementById("board").children[i].children[j].innerText = ""; // Очищуємо інтерфейс
+                }
+            }
+            currentPlayer = "X"; // Повертаємо хід гравцю X
+            document.getElementById("turn").innerText = "Player 1's Turn"; // Встановлюємо хід гравця 1
+        }
+    </script>
+</html>

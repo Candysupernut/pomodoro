@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Decay Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #result_window {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <label for="element">Element:</label>
+    <input type="text" id="element">
+
+    <label for="mass_number">Mass Number (A):</label>
+    <input type="text" id="mass_number">
+
+    <label for="atomic_number">Atomic Number (Z):</label>
+    <input type="text" id="atomic_number">
+
+    <button onclick="alphaDecay()">Alpha Decay</button>
+    <button onclick="betaDecay()">Beta Decay</button>
+
+    <div id="result_window"></div>
+
+    <script>
+	const el = [
+    '?', 'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
+    'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
+    'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
+    'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr',
+    'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn',
+    'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd',
+    'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb',
+    'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg',
+    'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th',
+    'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm',
+    'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds',
+    'Rg', 'Cn', 'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og'
+];
+        function alphaDecay() {
+            let element = document.getElementById('element').value;
+            let massNumber = parseInt(document.getElementById('mass_number').value);
+            let atomicNumber = parseInt(document.getElementById('atomic_number').value);
+
+            let newMassNumber = massNumber - 4;
+            let newAtomicNumber = atomicNumber - 2;
+
+
+            displayResult(element, newMassNumber, newAtomicNumber, "Alpha");
+        }
+
+        function betaDecay() {
+            let element = document.getElementById('element').value;
+            let massNumber = parseInt(document.getElementById('mass_number').value);
+            let atomicNumber = parseInt(document.getElementById('atomic_number').value);
+
+            let newMassNumber = massNumber;
+            let newAtomicNumber = atomicNumber + 1;
+			const el = [
+    '?', 'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
+    'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
+    'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn',
+    'Ga', 'Ge', 'As', 'Se', 'Br', 'Kr', 'Rb', 'Sr', 'Y', 'Zr',
+    'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn',
+    'Sb', 'Te', 'I', 'Xe', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd',
+    'Pm', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb',
+    'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Hg',
+    'Tl', 'Pb', 'Bi', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Ac', 'Th',
+    'Pa', 'U', 'Np', 'Pu', 'Am', 'Cm', 'Bk', 'Cf', 'Es', 'Fm',
+    'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds',
+    'Rg', 'Cn', 'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og'
+];
+            displayResult(element, newMassNumber, newAtomicNumber, "Beta");
+        }
+
+        function displayResult(element, massNumber, atomicNumber, decayType) {
+            let resultWindow = document.getElementById('result_window');
+            resultWindow.innerHTML = `
+                <h2>Decay Result</h2>
+                <p><strong>Element:</strong> ${el[atomicNumber]}</p>
+                <p><strong>Mass Number (A):</strong> ${massNumber}</p>
+                <p><strong>Atomic Number (Z):</strong> ${atomicNumber}</p>
+                <p><strong>Decay Type:</strong> ${decayType}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
