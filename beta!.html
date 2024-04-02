@@ -7,13 +7,16 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+			background-image:url('beta.png');
+			background-size:cover;
         }
         label {
             display: block;
             margin-bottom: 5px;
+			font-size:25px;
         }
         input[type="text"] {
-            width: 150px;
+            width: 25px;
             margin-bottom: 10px;
         }
         button {
@@ -26,22 +29,292 @@
             padding: 10px;
             margin-top: 20px;
         }
+		 article {
+		 margin-left:600px;
+            margin-top: 10px;
+            width:700px;
+			background-color:pink;
+        }
+		#element{
+		margin-left:80px;
+        margin-top: 40px;
+		height:50px;
+		width:50px;
+		font-size:35px;
+		}
+		#mass_number{position:absolute;
+		left:640px;
+        top: 90px;
+		height:10px;
+		width:20px;
+		font-size:15px;
+		}
+		#atomic_number{
+		position:absolute;
+		left:640px;
+        top: 110px;
+		height:10px;
+		width:20px;
+		font-size:15px;
+		}#h{
+		position:absolute;
+		left:780px;
+        top: 70px;
+		height:10px;
+		
+		font-size:45px;
+		}
+		#h2{
+		position:absolute;
+		left:780px;
+        top: 70px;
+		height:10px;
+		
+		font-size:45px;
+		}
+		.r1{
+		position:absolute;
+		left:1030px;
+        top: 30px;
+		height:10px;
+		font-size:45px;
+		}
+		.r2{
+		position:absolute;
+		left:1000px;
+        top: 60px;
+		height:10px;
+		
+		font-size:15px;
+		}.r3{
+		position:absolute;
+		left:1000px;
+        top: 80px;
+		height:10px;
+		
+		font-size:15px;
+		}
+		.hidden {
+    display: none;
+  }@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto');
+*{box-sizing: border-box;}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  background-image:url('bg1.jpg');
+  background-size:cover;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {text-decoration: none;}
+.top-menu {
+  background: white;
+  position: relative;
+}
+.top-menu:after, 
+.submenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-menu > li {
+  display: inline-block;
+  float: left;
+}
+.top-menu > li > a {
+  display: block;
+  padding: 18px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  transition: .2s linear;
+}
+.top-menu > li > a:hover {color: #B03062;}
+.dropdown:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  margin-left: 4px;
+  vertical-align: top;
+}
+.submenu, 
+.submenu-standart {
+  border-top: 1px solid #e5e5e5;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,.07);
+  background: white;
+  padding: 25px 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0,30px,0);
+  transition: .5s ease-out;
+  transform-origin: 0% 0%;
+}
+.submenu {width: 100%;}
+.submenu-standart {
+  min-width: 200px;
+  padding: 10px 0;
+}
+.dropdown-standart {position: relative;}
+.top-menu > li:hover .submenu, 
+.top-menu > li:hover .submenu-standart {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0,0,0);
+}
+.submenu > li {
+  float: left;
+  width: calc(100% / 3);
+  padding: 0 18px;
+  border-right: 1px solid #e5e5e5;
+}
+.submenu-standart li {padding: 0 18px;}
+.submenu > li:last-child {border-right: none;}
+.submenu img {
+  display: block;
+  width: 100%;
+}
+.submenu li a, 
+.submenu-standart li a {
+  display: block;
+  padding: 5px 0;
+  color: #666;
+  font-size: 13px;
+}
+.submenu li .link-image {padding: 0;}
+.submenu li a:hover {color: #B03062;}
+.submenu h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.content {
+  margin: 20px auto;
+  padding: 0 20px;
+}
+@media(max-width:768px) {
+  .top-menu li {
+    width: 100%;
+    height: auto!important;
+  }
+  .top-menu > li {border-bottom: 1px solid #e5e5e5;}
+  .top-menu > li > a {padding: 18px}
+  .submenu,
+  .submenu-standart {
+    position: relative;
+    display: none;
+    box-shadow: none;
+    padding: 0;
+    background: rgba(0,0,0,.02);
+  }
+  .submenu-standart {padding: 10px 0;}
+  .submenu > li {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px;
+  }
+  .submenu h3 {margin: 0 0 10px}
+  .submenu .image-header {margin: 10px 0}
+  .submenu li:last-of-type {border-bottom: none}
+  .top-menu > li:hover .submenu,
+  .top-menu > li:hover .submenu-standart {display: block;}
+}
+.more{position:absolute;font-size:40px;
+left:720px;
+top:70px;
+color:#8B0000;
+list-style:none;}
+a:link{
+		color: #800000;}
+	a:hover{color: #800000;}
+.redl {
+}
     </style>
 </head>
-<body>
+<body><nav class="container">
+  <ul class="top-menu">
+    <li><a href="index.html">Головна</a></li>
+    <li class="dropdown-standart"><a href="" class="dropdown">Фізика</a>
+      <ul class="submenu-standart">
+        <li><a href="temperature.html">Конвертер одиниць температури</a></li>
+        <li><a href="cm.html">Конвертер одиниць відстані і довжини</a></li>
+        <li><a href="massa.html">Конвертер одиниць масси і ваги</a></li>
+        <li><a href="time.html">Конвертер одиниць часу</a></li>
+        <li><a href="v.html">Конвертер одиниць об'єму</a></li>
+        <li><a href="sq.html">Конвертер одиниць площі</a></li>
+      </ul>
+    </li>
+    <li><a href="" class="dropdown">Математика</a>
+      <ul class="submenu">
+        <li><h3>Алгебра</h3>
+          <ul>
+            <li><a href="log.html">Обрахунок логарифмів</a></li>
+            <li><a href="duscruminant.html">Обрахунок дискримінанта</a></li>
+            <li><a href="f.html">Факторіал числа</a></li>
+            <li><a href="nck.html">НСК</a></li>
+            <li><a href="nck.html">НСД</a></li>
+            <li><a href="nck.html">Остача при діленні</a></li>
+            <li><a href="nck.html">Розкладання на множники</a></li>
+            <li><a href="procent.html">Калькулятор відсотків</a></li>
+          </ul>
+        </li>
+       
+		<li><h3>Геометрія</h3>
+          <ul>
+            <li><a href="square.html">Площа трикутника 9-ма способами</a></li>
+            <li><a href="elips.html">Площа круга та еліпса</a></li>
+            <li><a href="elips2.html">Площа сектора</a></li>
+            <li><a href="vector.html">Bектори</a></li>
+            <li><a href="vector2.html">Множення векторів</a></li>
+            <li><a href="kyt.html">Знаходження кута</a></li>
+			<li><a href="radian.html">Тригонометрія</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>
+              <a href="" class="link-image">
+              <img src="https://st.depositphotos.com/1025323/2440/i/450/depositphotos_24408891-stock-illustration-advance-of-mathematics.jpg">
+              </a>
+            </li>
+            <li><h3 class="image-header"></h3></li>
+          </ul>
+        </li>
+      </ul>
+    </li><li><a href="beta!.html">Розпад електронів</a></li>
+    <li><a href="me.html">Довідка</a></li>
+    <li><a href="obem.html">Формули об'єму</a></li>
+  </ul>
+</nav>
+<article>
     <label for="element">Element:</label>
-    <input type="text" id="element">
-
-    <label for="mass_number">Mass Number (A):</label>
     <input type="text" id="mass_number">
+<input type="text" id="atomic_number">
+<input type="text" id="element">
+<label class='hidden' id="h">--> <sup>4</sup><sub>2</sub>He +</label>
+<label class='hidden' id="h2">--> <sup>0</sup><sub>-1</sub>e +</label>
 
+    
+	<label for="mass_number">Mass Number (A):</label>
     <label for="atomic_number">Atomic Number (Z):</label>
-    <input type="text" id="atomic_number">
+    
 
     <button onclick="alphaDecay()">Alpha Decay</button>
     <button onclick="betaDecay()">Beta Decay</button>
 
-    <div id="result_window"></div>
+    <div id="result_window"></div></article>
 
     <script>
 	const el = [
@@ -58,10 +331,15 @@
     'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds',
     'Rg', 'Cn', 'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og'
 ];
+const bh = document.getElementById('h');
+const ah = document.getElementById('h2');
+
         function alphaDecay() {
             let element = document.getElementById('element').value;
             let massNumber = parseInt(document.getElementById('mass_number').value);
             let atomicNumber = parseInt(document.getElementById('atomic_number').value);
+			ah.classList.add('hidden');
+			bh.classList.remove('hidden');
 
             let newMassNumber = massNumber - 4;
             let newAtomicNumber = atomicNumber - 2;
@@ -77,6 +355,8 @@
 
             let newMassNumber = massNumber;
             let newAtomicNumber = atomicNumber + 1;
+			ah.classList.remove('hidden');
+			bh.classList.add('hidden');
 			const el = [
     '?', 'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
     'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
@@ -100,9 +380,9 @@
             resultWindow.innerHTML = `
                 <h2>Decay Result</h2>
 				
-                <p><strong>Element:</strong> ${y}</p>
-                <p><strong>Mass Number (A):</strong> ${massNumber}</p>
-                <p><strong>Atomic Number (Z):</strong> ${atomicNumber}</p>
+                <p class='r1'><strong></strong> ${y}</p>
+                <p class='r2'><strong></strong> ${massNumber}</p>
+                <p class='r3'><strong></strong> ${atomicNumber}</p>
                 <p><strong>Decay Type:</strong> ${decayType}</p>
             `;
         }

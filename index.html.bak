@@ -146,5 +146,75 @@
 	  <div class="rk20"><span data-double="@ 2014 pixelhint com. All Rights Reserved"></span></div>
 	   </footer></div>
 	
-	
+ <script>
+        let displayValue = '';
+
+        function appendNumber(number) {
+            displayValue += number;
+            document.getElementById('display').value = displayValue;
+        }
+
+        function appendOperator(operator) {
+            if (displayValue !== '' && !isNaN(displayValue[displayValue.length - 1])) {
+                displayValue += operator;
+                document.getElementById('display').value = displayValue;
+            }
+        }
+
+        function clearDisplay() {
+            displayValue = '';
+            document.getElementById('display').value = displayValue;
+        }
+
+        function deleteLast() {
+            displayValue = displayValue.slice(0, -1);
+            document.getElementById('display').value = displayValue;
+        }
+
+        function calculate() {
+            try {
+                displayValue = eval(displayValue);
+                document.getElementById('display').value = displayValue;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+
+        function changeSign() { // Функція для зміни знаку
+            if (displayValue !== '' && displayValue !== 'Error') {
+                displayValue = -parseFloat(displayValue);
+                document.getElementById('display').value = displayValue;
+            }
+        }
+
+        function calculatePercentage() { // Функція для обчислення відсотків
+            if (displayValue !== '' && displayValue !== 'Error') {
+                displayValue = eval(displayValue) / 100;
+                document.getElementById('display').value = displayValue;
+            }
+        }
+
+        function calculateSquare() { // Функція для піднесення до квадрата
+            if (displayValue !== '' && displayValue !== 'Error') {
+                displayValue = Math.pow(parseFloat(displayValue), 2);
+                document.getElementById('display').value = displayValue;
+            }
+        }
+
+        function calculateSquareRoot() { // Функція для обчислення квадратного кореня
+            if (displayValue !== '' && displayValue !== 'Error') {
+                displayValue = Math.sqrt(parseFloat(displayValue));
+                document.getElementById('display').value = displayValue;
+            }
+        }
+
+        function calculateInverse() { // Функція для обчислення оберненого значення
+            if (displayValue !== '' && displayValue !== 'Error' && parseFloat(displayValue) !== 0) {
+                displayValue = 1 / parseFloat(displayValue);
+                document.getElementById('display').value = displayValue;
+            } else {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>	
 </html>

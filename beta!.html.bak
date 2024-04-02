@@ -7,13 +7,16 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+			background-image:url('beta.png');
+			background-size:cover;
         }
         label {
             display: block;
             margin-bottom: 5px;
+			font-size:25px;
         }
         input[type="text"] {
-            width: 150px;
+            width: 25px;
             margin-bottom: 10px;
         }
         button {
@@ -26,22 +29,148 @@
             padding: 10px;
             margin-top: 20px;
         }
+		 article {
+		 margin-left:600px;
+            margin-top: 10px;
+            width:700px;
+			background-color:pink;
+        }
+		#element{
+		margin-left:80px;
+        margin-top: 40px;
+		height:50px;
+		width:50px;
+		font-size:35px;
+		}
+		#mass_number{position:absolute;
+		left:640px;
+        top: 90px;
+		height:10px;
+		width:20px;
+		font-size:15px;
+		}
+		#atomic_number{
+		position:absolute;
+		left:640px;
+        top: 110px;
+		height:10px;
+		width:20px;
+		font-size:15px;
+		}#h{
+		position:absolute;
+		left:780px;
+        top: 70px;
+		height:10px;
+		
+		font-size:45px;
+		}
+		#h2{
+		position:absolute;
+		left:780px;
+        top: 70px;
+		height:10px;
+		
+		font-size:45px;
+		}
+		.r1{
+		position:absolute;
+		left:1030px;
+        top: 30px;
+		height:10px;
+		font-size:45px;
+		}
+		.r2{
+		position:absolute;
+		left:1000px;
+        top: 60px;
+		height:10px;
+		
+		font-size:15px;
+		}.r3{
+		position:absolute;
+		left:1000px;
+        top: 80px;
+		height:10px;
+		
+		font-size:15px;
+		}
+		.hidden {
+    display: none;
+  }
     </style>
 </head>
-<body>
+<body><nav class="container">
+  <ul class="top-menu">
+    <li><a href="index.html">Головна</a></li>
+    <li class="dropdown-standart"><a href="" class="dropdown">Фізика</a>
+      <ul class="submenu-standart">
+        <li><a href="temperature.html">Конвертер одиниць температури</a></li>
+        <li><a href="cm.html">Конвертер одиниць відстані і довжини</a></li>
+        <li><a href="massa.html">Конвертер одиниць масси і ваги</a></li>
+        <li><a href="time.html">Конвертер одиниць часу</a></li>
+        <li><a href="v.html">Конвертер одиниць об'єму</a></li>
+        <li><a href="sq.html">Конвертер одиниць площі</a></li>
+      </ul>
+    </li>
+    <li><a href="" class="dropdown">Математика</a>
+      <ul class="submenu">
+        <li><h3>Алгебра</h3>
+          <ul>
+            <li><a href="log.html">Обрахунок логарифмів</a></li>
+            <li><a href="duscruminant.html">Обрахунок дискримінанта</a></li>
+            <li><a href="f.html">Факторіал числа</a></li>
+            <li><a href="nck.html">НСК</a></li>
+            <li><a href="nck.html">НСД</a></li>
+            <li><a href="nck.html">Остача при діленні</a></li>
+            <li><a href="nck.html">Розкладання на множники</a></li>
+            <li><a href="procent.html">Калькулятор відсотків</a></li>
+          </ul>
+        </li>
+       
+		<li><h3>Геометрія</h3>
+          <ul>
+            <li><a href="square.html">Площа трикутника 9-ма способами</a></li>
+            <li><a href="elips.html">Площа круга та еліпса</a></li>
+            <li><a href="elips2.html">Площа сектора</a></li>
+            <li><a href="vector.html">Bектори</a></li>
+            <li><a href="vector2.html">Множення векторів</a></li>
+            <li><a href="kyt.html">Знаходження кута</a></li>
+			<li><a href="radian.html">Тригонометрія</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li>
+              <a href="" class="link-image">
+              <img src="https://st.depositphotos.com/1025323/2440/i/450/depositphotos_24408891-stock-illustration-advance-of-mathematics.jpg">
+              </a>
+            </li>
+            <li><h3 class="image-header"></h3></li>
+          </ul>
+        </li>
+      </ul>
+    </li><li><a href="beta!.html">Розпад електронів</a></li>
+    <li><a href="me.html">Довідка</a></li>
+    <li><a href="obem.html">Формули об'єму</a></li>
+  </ul>
+</nav>
+<article>
     <label for="element">Element:</label>
-    <input type="text" id="element">
-
-    <label for="mass_number">Mass Number (A):</label>
     <input type="text" id="mass_number">
+<input type="text" id="atomic_number">
+<input type="text" id="element">
+<label class='hidden' id="h">--> <sup>4</sup><sub>2</sub>He +</label>
+<label class='hidden' id="h2">--> <sup>0</sup><sub>-1</sub>e +</label>
 
+    
+	<label for="mass_number">Mass Number (A):</label>
     <label for="atomic_number">Atomic Number (Z):</label>
-    <input type="text" id="atomic_number">
+    
 
     <button onclick="alphaDecay()">Alpha Decay</button>
     <button onclick="betaDecay()">Beta Decay</button>
 
-    <div id="result_window"></div>
+    <div id="result_window"></div></article>
 
     <script>
 	const el = [
@@ -58,10 +187,15 @@
     'Md', 'No', 'Lr', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds',
     'Rg', 'Cn', 'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og'
 ];
+const bh = document.getElementById('h');
+const ah = document.getElementById('h2');
+
         function alphaDecay() {
             let element = document.getElementById('element').value;
             let massNumber = parseInt(document.getElementById('mass_number').value);
             let atomicNumber = parseInt(document.getElementById('atomic_number').value);
+			ah.classList.add('hidden');
+			bh.classList.remove('hidden');
 
             let newMassNumber = massNumber - 4;
             let newAtomicNumber = atomicNumber - 2;
@@ -77,6 +211,8 @@
 
             let newMassNumber = massNumber;
             let newAtomicNumber = atomicNumber + 1;
+			ah.classList.remove('hidden');
+			bh.classList.add('hidden');
 			const el = [
     '?', 'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
     'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
@@ -96,11 +232,13 @@
 
         function displayResult(element, massNumber, atomicNumber, decayType) {
             let resultWindow = document.getElementById('result_window');
+			var y= el[atomicNumber]
             resultWindow.innerHTML = `
                 <h2>Decay Result</h2>
-                <p><strong>Element:</strong> ${el[atomicNumber]}</p>
-                <p><strong>Mass Number (A):</strong> ${massNumber}</p>
-                <p><strong>Atomic Number (Z):</strong> ${atomicNumber}</p>
+				
+                <p class='r1'><strong></strong> ${y}</p>
+                <p class='r2'><strong></strong> ${massNumber}</p>
+                <p class='r3'><strong></strong> ${atomicNumber}</p>
                 <p><strong>Decay Type:</strong> ${decayType}</p>
             `;
         }
